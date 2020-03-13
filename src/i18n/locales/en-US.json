@@ -1,0 +1,13 @@
+{
+  "http.started": "Http started on port %s, and i18n locale %s",
+  "error.notFound": "Error invalid action",
+  "error.validation": "Error on validation",
+  "error.unexpected": "unexpected error",
+  "error.resourceNotFound": "Error Resource not found",
+  "error.resourceAlreadyExistis": "Error Resource already existis",
+  "error.invalidImageFormat": "Error Invalid file format.",
+  "error.only.valid.formats": "Only .png, .jpg and .jpeg format allowed!",
+  "error.invalidParameter": "Error Input parameter violated a constraint. Validate your parameter before calling the API operation again.",
+  "error.images.parameterInvalid.peopleMetaId": "Error. Parameter Invalid - peopleMetaId",
+  "error.images.parameterInvalid.helloText": "Error. Parameter Invalid - helloText"
+}

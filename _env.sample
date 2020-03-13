@@ -1,0 +1,14 @@
+/* Database */
+DB_HOST=crearesistemas.com.br
+DB_PORT=15439
+DB_POOL_MIN=1
+DB_POOL_MAX=1000
+DB_DATABASE=hello_database
+DB_USERNAME=hello_user
+DB_PASSWORD=hello123
+
+/* Application */
+PORT= 3000
+NODE_ENV=
+BODY_LIMIT= '500kb'
+I18N_LOCALE= 'en-US'

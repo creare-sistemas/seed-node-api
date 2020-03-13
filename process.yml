@@ -1,0 +1,5 @@
+apps:
+  - script   : 'src/index.js'
+    name     : 'seed-nodejs'
+    exec_mode: 'cluster'
+    instances: 1

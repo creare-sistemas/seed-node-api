@@ -1,0 +1,285 @@
+########################################################################################################
+########################################################################################################
+##############################           HEADER API DOC          #######################################
+########################################################################################################
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: Seed NodeJs Creare Sistemas
+  contact:
+    name: "API Support"
+    email: "engenharia@crearesistemas.com.br"
+    url: "https://crearesistemas.com.br"
+host: apis.crearesistemas.homolog.com/traffic-infractions/v1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: Introduction
+    description: |
+      Baixe a especificação OpenApi: <a target="_blank" href="/docs/traffic-infractions/openapi.yml" class="btn" download="seed_project_node_creare_openapi.yml">Download</a>
+
+      Baixe como uma coleção Postman: <a target="_blank" href="/docs/traffic-infractions/ImageRecognitionPostmanCollection.json" class="btn" download="seed_project_node_creare_postmancollection.json">Download</a>
+
+      Seed NodeJs Creare Sistemas API. Microserviço para possibilitar a criação de outros projetos Node a aprtir de um template e evitar retrabalho, além de manter um padrão adotado internamente pelos desenvolvedore da Creare Sitemas.
+      Para Utilizar a API é nesessário as credenciais de acesso concedidas pela Creare Sistemas.
+      Contato = engenharia@crearesistemas.com.br
+
+      ### Respostas
+      As repostas podem ser um destes tipos:
+
+      - Código `200`, com conteúdo
+      - Código `201`, sem conteúdo
+      - Código `202`, sem conteúdo
+      - Código `204`, sem conteúdo
+      - Código `4XX`, client error
+      - Código `5XX`, server error
+
+      #### Respostas de sucesso
+      As respostas de sucesso podem apresentar o código HTTP `200`, HTTP `201`,  HTTP `202`  ou o código HTTP `204`.
+      #### Respostas de erro
+      As respostas de erro podem apresentar o código HTTP `4XX` (client error) ou o código HTTP `5XX` (server error) e seguem o padrão de conteúdo apresentado a seguir:
+      <table>
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Descrição</th>
+            <th>Formato</th>
+            <th>Presente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>code</strong></td>
+            <td>Código de erro</td>
+            <td>string</td>
+            <td>sim</td>
+          </tr>
+          <tr>
+            <td><strong>message</strong></td>
+            <td>Mensagem detalhando o erro ocorrido</td>
+            <td>string</td>
+            <td>sim</td>
+          </tr>
+        </tbody>
+      </table>
+
+      #### Códigos de Erros
+        Tabela com todos os códigos de erros possíveis e sua descrição:
+
+      <table class="font-table-exception">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ERROR_RESOURCE_NOT_FOUND</td>
+            <td>Resource not found</td>
+          </tr>
+        </tbody>
+      </table>
+
+      ### Endpoints de serviço
+      <table>
+        <thead>
+          <tr>
+            <th>Ambiente</th>
+            <th>Serviço</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Homolog</td>
+            <td>Autenticação</td>
+            <td><host>/authorization-server/login</td>
+          </tr>
+          <tr>
+            <td>Homolog</td>
+            <td>Token</td>
+            <td><host>/authorization-server/token</td>
+          </tr>
+          <tr>
+            <td>Produção</td>
+            <td>Autenticação</td>
+            <td><host-prod>/authorization-server/login</td>
+          </tr>
+          <tr>
+            <td>Produção</td>
+            <td>Token</td>
+            <td><host-prod>/authorization-server/token</td>
+          </tr>
+        </tbody>
+      </table>
+  - name: Authorization
+    description: |
+      A autenticação e autorização na API foi implementada com o OAuth2/OpenID Connect.
+      Para autenticar e acessar um recurso insira no header o bearer token recebido do endpoint autenticação,
+      do serviço authorization-server.
+      ```text
+         Authorization: Bearer df728f22-d90b-4f92-916f-2bd80cef8e53
+      ```
+  - name: Hello
+    description: |
+      Endpoints para gerenciar o recurso hello world. Uma mensagem de olá é o maior nível da API.
+
+paths:
+  ########################################################################################################
+  ########################################################################################################
+  #######################             HELLO RESOURCE          #####################################
+  ########################################################################################################
+  /hello/:
+    post:
+      description: Criar uma mensagem de hello world.
+      summary: Create Hello
+      tags:
+        - Hello
+      produces:
+        - application/json
+      parameters:
+        - name: Request
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - messageName
+              - messageText
+            properties:
+              messageName:
+                type: string
+                example: Mensagem de Bom dia
+              messageText:
+                type: string
+                example: Bom dia da Creare Sistemas para você!
+      x-code-samples:
+        - lang: "javascript-Nodejs-axios"
+          source: |
+            const axios = require('axios');
+            axios.post('/organizations', {
+              messageName: 'Mensagem de Bom dia',
+              messageText: 'Bom dia da Creare Sistemas para você!'
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+      responses:
+        200:
+          description: SUCCESS Retorna os dados do recurso criado.
+          schema:
+            type: object
+            properties:
+              messageId:
+                type: number
+                example: 1
+              messageText:
+                type: string
+                example: "Bom dia da Creare Sistemas para você!"
+              messageName:
+                type: string
+                example: Mensagem de Bom dia
+              createdAt:
+                type: string
+                example: "2020-01-30 11:07:11"
+              updatedAt:
+                type: string
+                example: "2020-01-30 11:07:11"
+        400:
+          description: Recurso já foi criado anteriormente.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: error Resource already existis
+              code:
+                type: string
+                example: RESOURCE_ALREADY_EXISTS
+              details:
+                type: string
+                example: Hello already exists. ID= 1.
+  /organizations/{id}:
+    get:
+      description: Retorna as informações de uma hello pelo Id.
+      summary: Get hello by id.
+      tags:
+        - Hello
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: "id do recurso"
+          required: true
+          type: number
+      responses:
+        404:
+          description: Hello não encontrada.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Recurso não encontrado
+              code:
+                type: string
+                example: RESOURCE_NOT_FOUND
+
+        200:
+          description: Dados da mensagem Hello.
+          schema:
+            type: object
+            properties:
+              messageId:
+                type: number
+                example: 1
+              messageName:
+                type: string
+                example: Mensagem de bom dia.
+              messageText:
+                type: string
+                example: Bom dia da Creare Sistemas para você!
+              createdAt:
+                type: string
+                example: "2019-03-19 19:18:11"
+              updatedAt:
+                type: string
+                example: "2019-03-19 19:18:11"
+  /hello/{id}/:
+    delete:
+      description: Exclui as informações de uma mensagem cadastrada pelo Id
+      summary: Delete Hello by id.
+      tags:
+        - Hello
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: "id do recurso"
+          required: true
+          type: number
+      responses:
+        500:
+          description: Erro interno.
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: UNEXPECTED_ERROR
+              message:
+                type: string
+                example: erro inesperado
+        204:
+          description: No Content.
+

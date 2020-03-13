@@ -1,0 +1,14 @@
+{
+  "http.started": "http server iniciado na porta %s, e i18n locale %s",
+  "error.notFound": "Erro ação inválida.",
+  "error.validation": "Erro de validação",
+  "error.unexpected": "Erro inesperado",
+  "error.resourceNotFound": "Erro. Recurso não encontrado",
+  "error.invalidParameter": "Erro. O parâmetro de entrada não é valido. Valide seu parâmetro e tente novamente.",
+  "error.collections.parameterInvalid.helloId": "Erro. Parâmetro inválido - helloId",
+  "error.collections.parameterInvalid.helloName": "Erro. Parâmetro inválido - helloName",
+  "error.parameterInvalid.helloText": "Erro. Parâmetro inválido - helloText",
+  "error.invalidFileFormat": "Erro. Formato da arquivo inválido.",
+  "error.only.valid.formats": "Apenas .png, .jpg e .jpeg são permitidos!",
+  "error.resourceAlreadyExistis": "Erro. O recurso já existe."
+}
