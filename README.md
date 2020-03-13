@@ -8,25 +8,6 @@ A documentação da API encontra-se em https://apidoc.crearesistemas.com.br ou o
 
 A API segue a seguinte estrutura de domínios:
 
-TODO:
-
-```mermaid
-sequenceDiagram
-Note left of hello: Hello é o maior nível de domínios da API<br/>maior nível
-Hello ->> Messages: Hello.
-
-```
-
-Fluxo:
-
-```mermaid
-
-graph LR
-
-A[HELLO] -- tem --> B((MESSAGES))
-
-```
-
 As mensagens cadastradas podem ser consultadas e excluídas
 
 ### Passos para fazer uma utilização básica:
