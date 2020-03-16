@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Easy Carros integration functionality.
+- Initial project functionality.
